@@ -1,0 +1,477 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: #555 ;
+    margin: 0;
+}
+
+.wrapper {
+    position: relative;
+    flex-direction: row;
+    transition: all 125ms ease-in-out;
+}
+
+
+/* #################### SIDE - BAR #################### */
+
+.side-bar {
+    position: fixed;
+    min-width: 110px;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: antiquewhite; */
+    z-index: 1;
+
+}
+
+.side-bar .logo {
+    margin-top: 16px;
+    width: 50px;
+    height: 50px;
+}
+
+.side-bar a {
+    color: #555 ;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.bg-color-yellow {
+    background-color: #ff5;
+}
+
+.side-bar a:hover {
+    border-radius: 5px;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+
+.side-bar a:nth-child(2) {
+    margin-top: 48px;
+    padding: 4px 30%;
+}
+
+.side-bar a:nth-child(3) {
+    margin-top: 24px;
+    padding: 4px 12%;
+}
+
+
+/* #################### WRAPPER2 #################### */
+
+.wrapper2 {
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    /* height: 100vh; */
+    margin: 0;
+}
+
+
+/* #################### INPUT CONTENT #################### */
+
+.input-content {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+}
+
+.maximize-input {  /* if the bigger input field is selected, the "input-content" changes to bigger height */
+    height:230px;
+}
+
+
+/* #################### INPUT CONTAINER  */
+
+.input-closed-container, .input-opened-container {
+    position: absolute;
+    top: 40px;
+    left: 30%;
+    width: 50%;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.379);
+    padding: 0;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.input-closed-container {
+    justify-content: center;
+}
+
+.input-opened-container {
+    flex-direction: column;
+    padding: 1px 1px 57px 1px;
+    border-radius: 10px;
+}
+
+
+/* #################### INPUT  */
+
+.input {
+    width: 100%;
+    line-height: 20px;
+
+    /* no scroll on the right side -> */
+    overflow: hidden;
+
+    /* no resize option on the bottom right -> */
+    resize: none;
+
+    padding: 12px 14px;
+    border-radius: 10px;
+    /* background-color: rgb(0 0 0 / 10%); */
+
+    /* hovering over the input field, the cursor change to "text" type.
+       it's not changing autom. because the placeholder in the span prevents it (s. .input[contenteditable]) -> */
+    cursor: text;
+
+    outline: none;
+    z-index: 1;
+}
+
+.input-closed[contenteditable]:empty::before {
+    content: "Notiz schreiben...";
+    color: rgba(140, 140, 140, 0.5);
+    z-index: 2;
+}
+
+.input-title {
+    font-size: 18px;
+}
+
+.input-title[contenteditable]:empty::before {
+    content: "Titel";
+    color: rgba(140, 140, 140, 0.5);
+}
+
+.input-notice {
+    min-height: 48px;
+}
+
+.input-notice[contenteditable]:empty::before {
+    content: "Notiz schreiben...";
+    color: rgba(140, 140, 140, 0.5);
+}
+
+.trash-img {
+    width: 40px;
+}
+
+.bg-color-red {
+    background-color: rgba(255, 0, 0, 0.60);
+}
+
+.input-trash {
+    padding: 10px;
+}
+
+.input-trash-headline {
+    font-size: 20px;
+    margin: 0;
+}
+
+
+/* #################### BUTTON  */
+
+.button {
+    position: absolute;
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+    z-index: 0;
+    color: rgb(224, 223, 223);
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.button:hover {
+    color: #555;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.plus-button {
+    font-size: 32px;
+    padding: 2px 12px;
+    bottom: 10px;
+    right: 10px;
+    color: #555;
+}
+
+.input-close-button {
+    bottom: 10px;
+    left: 10px;
+    font-size: 32px;
+    padding: 2px 16px;
+    color: #555;
+    text-align: center;
+}
+
+.x-button {
+    font-size: 16px;
+    padding: 8px 13px;
+    bottom: 10px;
+    right: 10px;
+}
+
+.x-button-trash {
+    font-weight: bold;
+    border: 1px solid rgba(255, 0, 0, 0.60);
+    color:  rgba(255, 0, 0, 0.60);
+    bottom: 10px;
+    right: 10px;
+}
+
+.x-button-trash:hover {
+    background-color:  rgba(255, 0, 0, 0.60);
+}
+
+.restore-button  {
+    padding: 3px 7px;
+    bottom: 16px;
+    left: 18px;
+}
+
+
+/* #################### CONTENT #################### */
+
+.content {
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    /* background-color: aquamarine; */
+    padding-left: 150px;
+    padding-right: 30px;
+}
+
+.empty-content-info, .empty-trash-info {
+    color: rgba(85, 85, 85, 0.515);
+    padding-left: 30%;
+}
+
+
+/* #################### ITEM #################### */
+
+.item-container {
+    position: relative;
+    flex-direction: column;
+    padding: 12px 12px 48px 12px;
+    min-width: 100px;
+    max-width: 250px;
+    min-height: 150px;
+    max-height: 350px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 4px 4px;
+    gap: 8px;
+
+}
+
+.item-container span {
+    margin:0;
+
+}
+
+.item-title {
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 3px;
+}
+
+.item-notice {
+    overflow: hidden;
+    /* no resize option on the bottom right -> */
+    resize: none;
+    border-radius: 10px;
+    /* hovering over the input field, the cursor change to "text" type.
+       it's not changing autom. because the placeholder in the span prevents it (s. .input[contenteditable]) -> */
+    cursor: text;
+    outline: none;
+    line-height: 20px;
+    letter-spacing: 1px;
+    padding: 0 3px;
+}
+
+.br-color-red {
+    border: 2px solid rgba(255, 0, 0, 0.60);
+}
+
+
+/* #################### MEDIA QUERY #################################################### */
+@media screen and (max-width: 1000px) {
+
+    .item-container {
+        max-width: 192px;
+        max-height: 330px;
+    }
+}
+
+@media  screen and (max-width: 800px) {
+    body {
+        font-size: 12px;
+    }
+
+    .side-bar a:nth-child(2) {
+        margin-top: 48px;
+        padding: 4px 24%;
+    }
+
+    /* .side-bar a:nth-child(3) {
+    padding: 4px 12%;
+    } */
+
+    .input-opened-container {
+        flex-direction: column;
+        padding: 1px 1px 48px 1px;
+        top: 47px;
+        left: 25%;
+        width: 64%;
+    }
+
+    .input-notice {
+        font-size: 14px;
+    }
+
+    .content {
+        padding-left: 130px;
+        padding-right: 20px;
+    }
+
+    .item-container {
+        padding: 12px 12px 40px 12px;
+    }
+
+    .item-title {
+        font-size: 14px;
+    }
+
+    .item-notice {
+        line-height: 16px;
+    }
+
+    .button {
+        border: 1px solid rgba(0, 0, 0, 0.162);
+    }
+
+    .plus-button, .input-close-button {
+        border: none;
+    } 
+
+    .x-button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .x-button-trash {
+        color: rgba(255, 0, 0, 0.60);
+        border: 1px solid rgba(255, 0, 0, 0.60);
+    }
+
+    .restore-button {
+        font-size: 12px;
+        padding: 3px 6px;
+        bottom: 11px;
+    }
+}
+
+
+@media  screen and (max-width: 700px) {
+    .item-container {
+        max-width: 217px;
+        max-height: 320px;
+    }
+}
+
+
+@media  screen and (max-width: 600px) {
+
+    /* ########## SIDEBAR */
+    .side-bar {
+        z-index: 2;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 75px;
+        background-color: rgb(166, 163, 163);
+    }
+
+    .side-bar .logo {
+        margin: 0;
+        width: 50px;
+        height: 50px;
+    }
+
+    .side-bar a:nth-child(2) {
+        margin: 0;
+        padding: 21px 26px;
+        font-size: 16px;
+    }
+
+    .side-bar a:nth-child(3) {
+        margin: 0;
+        padding: 21px 7px;
+        font-size: 16px;
+    }
+
+    /* ########## INPUT CONTENT */
+    .input-content {
+        position: sticky;
+        z-index: 2;
+        height: 75px;
+    }
+
+    .maximize-input {
+        height: 170px;
+    }
+
+    .input-closed-container {
+        position: sticky;
+        top: 16px;
+        left: 3%;
+        width: 95%;
+    }
+
+    .input-opened-container {
+        position: sticky;
+        top: 16px;
+        left: 3%;
+        width: 95%;
+    }
+
+    /* ########## CONTENT */
+    .content {
+        padding-left: 4px;
+        padding-right: 4px;
+        padding-bottom: 32%;
+    }
+    
+    .item-container {
+        max-width: 48%;
+        max-height: 320px;
+    }
+}
+
+
+@media  screen and (max-width: 430px) {
+
+    .item-container {
+        max-width: 98%;
+        max-height: 160px;
+    }
+}

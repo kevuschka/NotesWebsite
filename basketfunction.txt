@@ -1,0 +1,23 @@
+function renderBasketCalculation() {
+    for (let i = 0; i < Basket[1].length; i++) {
+        basketPrice = Basket[1][i];
+    }
+
+    basketFullPrice = basketPrice + 1.9;
+
+    return `
+        <div id="fullBasketCalculationContainer" class="fullBasketCalculationContainer flex">
+            <div class="basketPrice flex">   
+                <p>Zwischensumme</p>
+                <p>${basketPrice.toFixed(2).toString().replace('.', ',')} €</p>
+            </div>
+            <div class="basketPrice flex">   
+                <p>Lieferkosten</p>
+                <p>${delivery.toFixed(2).toString().replace('.', ',')} €</p>
+            </div>
+            <div class="basketPrice flex">   
+                <p><strong>Gesamt</strong></p>
+                <p><strong>${basketFullPrice.toFixed(2).toString().replace('.', ',')} €</strong></p>
+            </div>
+        </div>`;
+}
